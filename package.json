@@ -1,0 +1,26 @@
+{
+  "name": "react-context-menu-popup",
+  "version": "1.0.0",
+  "description": "Simple, mobile friendly context menu popup for react-based web apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "text"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dahel/react-context-menu-popup.git"
+  },
+  "author": {
+    "name": "Sebastian Prymas",
+    "email": "prymas.sebastian@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dahel/react-context-menu-popup/issues"
+  },
+  "homepage": "https://github.com/dahel/react-context-menu-popup#readme",
+  "peerDependencies": {
+    "react": ">=15.1.0",
+    "react-dom": ">=15.1.0"
+  }
+}
