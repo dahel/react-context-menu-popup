@@ -1,6 +1,6 @@
 {
   "name": "react-context-menu-popup",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple, mobile friendly context menu popup for react-based web apps",
   "main": "index.js",
   "scripts": {
