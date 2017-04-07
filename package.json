@@ -22,5 +22,9 @@
   "peerDependencies": {
     "react": ">=15.1.0",
     "react-dom": ">=15.1.0"
+  },
+  "devDependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
   }
 }
