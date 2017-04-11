@@ -4,8 +4,9 @@
   "description": "Simple, mobile friendly context menu popup for react-based web apps",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "text",
-    "prepublish": "./node_modules/.bin/babel src -d lib"
+    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive \"./test/**/*@(.test.js|.test.jsx)\"",
+    "test:watch": "mocha --watch --compilers js:babel-core/register --require ./test/setup.js --recursive \"./test/**/*@(.test.js|.test.jsx)\"",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,15 @@
     "babel-core": "6.5.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "chai": "^3.5.0",
+    "coveralls": "^2.13.0",
+    "enzyme": "^2.8.0",
+    "istanbul": "^0.4.5",
+    "jsdom": "^9.12.0",
+    "mocha": "^3.2.0",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.1.0",
+    "sinon": "^2.1.0"
   }
 }
