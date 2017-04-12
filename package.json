@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive \"./test/**/*@(.test.js|.test.jsx)\"",
     "test:watch": "mocha --watch --compilers js:babel-core/register --require ./test/setup.js --recursive \"./test/**/*@(.test.js|.test.jsx)\"",
-    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
+    "cover": "cd ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec \"./test/**/*@(.test.js|.test.jsx)\"",
+    "dev:cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --require ./test/setup.js --recursive \"./test/**/*@(.test.js|.test.jsx)\""
   },
   "repository": {
     "type": "git",

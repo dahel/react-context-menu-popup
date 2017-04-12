@@ -1,0 +1,2 @@
+http://stackoverflow.com/questions/33621079/running-mocha-istanbul-babel
+https://github.com/istanbuljs/babel-plugin-istanbul
