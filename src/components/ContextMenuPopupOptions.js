@@ -16,13 +16,13 @@ class ContextMenuPopupOptions extends React.Component {
 	render() {
 		this.align();
 
-		const children = this.props.children.map((child, index) => {
+		const children = React.Children.map(this.props.children, (child, index) => {
 			return React.cloneElement(child, {
 				contextMenuPopup: this.props.contextMenuPopup,
 				onOptionSelect: this.props.onOptionSelect,
 				initialStyles: this.props.initialStyles,
 				key: index
-			});
+			})
 		});
 
 		return (

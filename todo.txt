@@ -1,3 +1,4 @@
-http://stackoverflow.com/questions/33621079/running-mocha-istanbul-babel
-https://github.com/istanbuljs/babel-plugin-istanbul
-http://www.hammerlab.org/2015/02/21/testing-react-web-apps-with-mocha-part-2/
+- w ContextMenuPopupOption dac style i hoverStyle - teraz tylko hoverStyle beda aplikowane prawdopodobnie, a powinny extendowac style
+- odkomentowac testy w ContextMenuPopupOption
+- przekazac do contestMenuPopupOptions jedną opcję i sprawdzic czy sie nie wywali
+- blockowac push dla coverage < 100

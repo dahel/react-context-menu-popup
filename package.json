@@ -5,13 +5,10 @@
   "main": "./lib/index.js",
   "scripts": {
     "prepublish": "./node_modules/.bin/babel src -d lib",
-    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive \"./test/**/*@(.test.js|.test.jsx)\"",
-    "test-watch": "mocha --watch --compilers js:babel-core/register --require ./test/setup.js --recursive \"./test/**/*@(.test.js|.test.jsx)\"",
-    "cover": "cd ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec \"./test/**/*@(.test.js|.test.jsx)\"",
-    "dev-cover": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --require ./test/setup.js --recursive \"./test/**/*@(.test.js|.test.jsx)\"",
-    "te": "./node_modules/.bin/mocha --compilers js:babel-core/register --require ./test/setup.js blanket --reporter html \"./test/**/*@(.test.js|.test.jsx)\"",
-    "test2": "babel-istanbul cover ./node_modules/mocha/bin/_mocha --require ./_test/setup.js --recursive \"./_test/**/*@(.test.js|.test.jsx)\"",
-    "test3": "istanbul cover --report lcov --report json --report text --report html ./node_modules/mocha/bin/_mocha -- -r babel-register -r ./test/setup.js \"./test/**/*@(.test.js|.test.jsx)\""
+    "test": "mocha -r babel-register -r ./test/setup.js \"./test/**/*@(.test.js)\"",
+    "test:watch": "mocha --watch -r babel-register -r ./test/setup.js \"./test/**/*@(.test.js)\"",
+    "test:watch:dev": "mocha --watch -r babel-register -r ./test/setup.js \"./test/**/contextMenuPopupOption.test.js\"",
+    "coverage": "istanbul cover --report text --report html ./node_modules/mocha/bin/_mocha -- -r babel-register -r ./test/setup.js \"./test/**/*@(.test.js)\""
   },
   "repository": {
     "type": "git",
@@ -47,6 +44,7 @@
     "istanbul": "^1.0.0-alpha.2",
     "jsdom": "^9.12.0",
     "mocha": "^3.2.0",
+    "npm-watch": "^0.1.8",
     "react": "^15.1.0",
     "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.1.0",

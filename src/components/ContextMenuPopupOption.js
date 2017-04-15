@@ -8,7 +8,7 @@ const styles = {
 };
 
 const hoverStyles = {
-	background: 'gainsboro'
+	backgroundColor: 'rgb(255, 255, 255)'
 };
 
 class ContextMenuPopupOption extends React.Component {
@@ -65,7 +65,7 @@ class ContextMenuPopupOption extends React.Component {
 		}
 
 		if (style && hovered) {
-		    return hoverStyle;
+			return Object.assign({}, style, hoverStyle);
 		}
 
 		if (!initialStyles) {
