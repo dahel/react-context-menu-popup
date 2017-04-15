@@ -11,7 +11,7 @@
     "dev-cover": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --require ./test/setup.js --recursive \"./test/**/*@(.test.js|.test.jsx)\"",
     "te": "./node_modules/.bin/mocha --compilers js:babel-core/register --require ./test/setup.js blanket --reporter html \"./test/**/*@(.test.js|.test.jsx)\"",
     "test2": "babel-istanbul cover ./node_modules/mocha/bin/_mocha --require ./_test/setup.js --recursive \"./_test/**/*@(.test.js|.test.jsx)\"",
-    "test3": "istanbul cover --report lcov --report json --report text --report html ./node_modules/mocha/bin/_mocha -- -r babel-register -r ./_test/setup.js \"./_test/**/*@(.test.js|.test.jsx)\""
+    "test3": "istanbul cover --report lcov --report json --report text --report html ./node_modules/mocha/bin/_mocha -- -r babel-register -r ./test/setup.js \"./test/**/*@(.test.js|.test.jsx)\""
   },
   "repository": {
     "type": "git",

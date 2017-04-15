@@ -5,5 +5,5 @@ instrumentation:
         - .jsx
     default-excludes: true
     excludes:
-        - _test/**/*.test.js
-        - _test/setup.js
+        - test/**/*.test.js
+        - test/setup.js
