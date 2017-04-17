@@ -45,12 +45,13 @@ class ContextMenuPopupOptions extends React.Component {
 			const {options} = this.refs;
 
 			if (options.getBoundingClientRect().right > window.innerWidth) {
-				options.style.left = 'auto';
+				console.log('setting options.style.left to: auto');
+				options.style.left = '';
 				options.style.right = '0';
 			}
 
 			if (options.getBoundingClientRect().bottom > window.innerHeight) {
-				options.style.top = 'auto';
+				options.style.top = '';
 				options.style.bottom = '0';
 			}
 

@@ -12,6 +12,7 @@ const hoverStyles = {
 };
 
 class ContextMenuPopupOption extends React.Component {
+	/* istanbul ignore next */
 	constructor() {
 		super();
 

@@ -5,10 +5,100 @@ import ContextMenuPopupOptions from '../../src/components/ContextMenuPopupOption
 const Option = () => <div className="unique"></div>;
 
 describe('ContextMenuPopupOptions' , () => {
-	it('properly aligns element in case it is near right edge', () => {
-	    
+	describe('properly aligns element by adding proper styles', () => {
+		let clock;
+		let getBoundingClientRect;
+
+		function setBoundingRect(wrapper, rect) {
+			getBoundingClientRect = sinon.stub(wrapper.find('div').first().getDOMNode(), 'getBoundingClientRect').callsFake(() => rect);
+		}
+
+		function clearBoundingRectStub() {
+			getBoundingClientRect.restore();
+		}
+
+		beforeEach(() => {
+			clock = sinon.useFakeTimers();
+		});
+
+		afterEach(() => {
+		    clock.restore();
+			getBoundingClientRect.restore();
+		});
+
+		it('properly aligns element in case it does not exceed right edge of the window', () => {
+			const windowWidth = window.innerWidth;
+			const wrapper = mount(
+				<ContextMenuPopupOptions />
+			);
+
+			setBoundingRect(wrapper, {right: windowWidth - 10});
+
+			clock.tick(1);
+
+			expect(wrapper.find('div').first().getDOMNode().style.top).to.eql('0px');
+			expect(wrapper.find('div').first().getDOMNode().style.right).to.eql('');
+			expect(wrapper.find('div').first().getDOMNode().style.bottom).to.eql('');
+			expect(wrapper.find('div').first().getDOMNode().style.left).to.eql('0px');
+
+			clearBoundingRectStub();
+		});
+
+		it('properly aligns element in case it exceeds right edge of the window', () => {
+			const windowWidth = window.innerWidth;
+			const wrapper = mount(
+				<ContextMenuPopupOptions />
+			);
+
+			setBoundingRect(wrapper, {right: windowWidth + 10});
+
+			clock.tick(1);
+
+			expect(wrapper.find('div').first().getDOMNode().style.top).to.eql('0px');
+			expect(wrapper.find('div').first().getDOMNode().style.right).to.eql('0px');
+			expect(wrapper.find('div').first().getDOMNode().style.bottom).to.eql('');
+			expect(wrapper.find('div').first().getDOMNode().style.left).to.eql('');
+
+			clearBoundingRectStub();
+		});
+
+		it('properly aligns element in case it does not exceed bottom edge of the window', () => {
+			const windowHeight = window.innerHeight;
+			const wrapper = mount(
+				<ContextMenuPopupOptions />
+			);
+
+			setBoundingRect(wrapper, {bottom: windowHeight - 10});
+
+			clock.tick(1);
+
+			expect(wrapper.find('div').first().getDOMNode().style.top).to.eql('0px');
+			expect(wrapper.find('div').first().getDOMNode().style.right).to.eql('');
+			expect(wrapper.find('div').first().getDOMNode().style.bottom).to.eql('');
+			expect(wrapper.find('div').first().getDOMNode().style.left).to.eql('0px');
+
+			clearBoundingRectStub();
+		});
+
+		it('properly aligns element in case it exceeds bottom edge of the window', () => {
+			const windowHeight = window.innerHeight;
+			const wrapper = mount(
+				<ContextMenuPopupOptions />
+			);
+
+			setBoundingRect(wrapper, {bottom: windowHeight + 10});
+
+			clock.tick(1);
+
+			expect(wrapper.find('div').first().getDOMNode().style.top).to.eql('');
+			expect(wrapper.find('div').first().getDOMNode().style.right).to.eql('');
+			expect(wrapper.find('div').first().getDOMNode().style.bottom).to.eql('0px');
+			expect(wrapper.find('div').first().getDOMNode().style.left).to.eql('0px');
+
+			clearBoundingRectStub();
+		});
 	});
-	
+
 	it('renders children when passed in', () => {
 		const wrapper = mount(
 			<ContextMenuPopupOptions>
@@ -71,7 +161,7 @@ describe('ContextMenuPopupOptions' , () => {
 
 		expect(wrapper.ref('options').hasClass('context-menu-popup__options')).to.equal(true);
 	});
-	
+
 	it('calls this.props.onMouseLeave on mouse leave event', () => {
 		const onMouseLeave = sinon.spy();
 		const wrapper = mount(
