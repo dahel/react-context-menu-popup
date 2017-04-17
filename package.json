@@ -7,7 +7,7 @@
     "prepublish": "./node_modules/.bin/babel src -d lib",
     "test": "mocha -r babel-register -r ./test/setup.js \"./test/**/*@(.test.js)\"",
     "test:watch": "mocha --watch -r babel-register -r ./test/setup.js \"./test/**/*@(.test.js)\"",
-    "test:watch:dev": "mocha --watch -r babel-register -r ./test/setup.js \"./test/**/contextMenuPopupOptions.test.js\"",
+    "test:watch:dev": "mocha --watch -r babel-register -r ./test/setup.js \"./test/**/contextMenuPopup.test.js\"",
     "coverage": "istanbul cover --report text --report html ./node_modules/mocha/bin/_mocha -- -r babel-register -r ./test/setup.js \"./test/**/*@(.test.js)\""
   },
   "repository": {

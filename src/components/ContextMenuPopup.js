@@ -38,15 +38,18 @@ class ContextMenuPopup extends React.Component {
 	}
 
 	getTriggerElement() {
-		const Trigger = this.props.children.find((item) => {
-			return item.type.name === 'ContextMenuPopupTrigger';
-		});
+		const Trigger = React.Children.toArray(this.props.children).filter((item) => {
+			return item.type.name === 'ContextMenuPopupTrigger'
+		})[0];
 
-		return React.cloneElement(Trigger, {
+		const a = React.cloneElement(Trigger, {
 			customOnClickHandler: Trigger.props.onClick,
 			onClick: this.onTriggerClick.bind(this),
 			contextMenuPopup: this
 		})
+
+		console.log('################################################## ??');
+		console.log(a.props.customOnClickHandler);
 	}
 
 	onTriggerClick() {
@@ -56,9 +59,9 @@ class ContextMenuPopup extends React.Component {
 	}
 
 	getOptionsListElement() {
-		const OptionsList = this.props.children.find((item) => {
-			return item.type.name === 'ContextMenuPopupOptions';
-		});
+		const OptionsList = React.Children.toArray(this.props.children).filter((item) => {
+			return item.type.name === 'ContextMenuPopupOptions'
+		})[0];
 
 		return React.cloneElement(OptionsList, {
 			onMouseLeave: this.onOptionsListMouseLeave.bind(this),

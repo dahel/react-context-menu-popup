@@ -3,3 +3,7 @@
 - przekazac do contestMenuPopupOptions jedną opcję i sprawdzic czy sie nie wywali
 - blockowac push dla coverage < 100
 - mount na shallow gdzie tylko możliwe (przy okazji wypraktykowac roznice)
+- walidacja - case w którym do contextMenuPopup nie przekazano triggera jako childa - co sie stanie?
+- walidacja - case w którym do contextMenuPopup nie przekazano Options jako childa - co sie stanie?
+- sprawdzic co sie stanie jak pierwsza zostanie przekazana lista opcji a trigger jako drugi
+- remove app.js
