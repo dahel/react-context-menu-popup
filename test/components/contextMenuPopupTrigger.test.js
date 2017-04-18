@@ -41,6 +41,7 @@ describe('ContextMenuPopupTrigger' , () => {
 		wrapper.find('div').simulate('click');
 
 		expect(customOnClickHandler).to.have.property('callCount', 1);
+		expect(customOnClickHandler.calledWith()).to.eql(true);
 	});
 
 	it('calls customOnClickHandler after click event in case customOnClickHandler is passed as prop', () => {

@@ -16,13 +16,13 @@ class ContextMenuPopupOptions extends React.Component {
 	render() {
 		this.align();
 
-		const children = this.props.children.map((child, index) => {
+		const children = React.Children.map(this.props.children, (child, index) => {
 			return React.cloneElement(child, {
 				contextMenuPopup: this.props.contextMenuPopup,
 				onOptionSelect: this.props.onOptionSelect,
 				initialStyles: this.props.initialStyles,
 				key: index
-			});
+			})
 		});
 
 		return (
@@ -45,12 +45,13 @@ class ContextMenuPopupOptions extends React.Component {
 			const {options} = this.refs;
 
 			if (options.getBoundingClientRect().right > window.innerWidth) {
-				options.style.left = 'auto';
+				console.log('setting options.style.left to: auto');
+				options.style.left = '';
 				options.style.right = '0';
 			}
 
 			if (options.getBoundingClientRect().bottom > window.innerHeight) {
-				options.style.top = 'auto';
+				options.style.top = '';
 				options.style.bottom = '0';
 			}
 

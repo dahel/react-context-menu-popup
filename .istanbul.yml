@@ -1,0 +1,9 @@
+instrumentation:
+    root: .
+    extensions:
+        - .js
+        - .jsx
+    default-excludes: true
+    excludes:
+        - test/**/*.test.js
+        - test/setup.js
