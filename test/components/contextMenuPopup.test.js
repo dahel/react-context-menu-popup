@@ -9,7 +9,7 @@ describe('ContextMenuPopup' , () => {
 	it('has properly defined initial state', () => {
 		const wrapper = mount(
 			<ContextMenuPopup>
-				<ContextMenuPopupTrigger a="asdf" onClick={() => {}}/>
+				<ContextMenuPopupTrigger />
 				<ContextMenuPopupOptions>
 					<ContextMenuPopupOption />
 				</ContextMenuPopupOptions>
@@ -25,7 +25,7 @@ describe('ContextMenuPopup' , () => {
 
 		const wrapper = mount(
 			<ContextMenuPopup className={className}>
-				<ContextMenuPopupTrigger onClick={() => {}}/>
+				<ContextMenuPopupTrigger />
 				<ContextMenuPopupOptions>
 					<ContextMenuPopupOption />
 				</ContextMenuPopupOptions>
@@ -41,7 +41,7 @@ describe('ContextMenuPopup' , () => {
 
 		const wrapper = mount(
 			<ContextMenuPopup>
-				<ContextMenuPopupTrigger onClick={() => {}}/>
+				<ContextMenuPopupTrigger />
 				<ContextMenuPopupOptions>
 					<ContextMenuPopupOption />
 				</ContextMenuPopupOptions>
@@ -58,7 +58,7 @@ describe('ContextMenuPopup' , () => {
 
 		const wrapper = mount(
 			<ContextMenuPopup style={style}>
-				<ContextMenuPopupTrigger onClick={() => {}}/>
+				<ContextMenuPopupTrigger />
 				<ContextMenuPopupOptions>
 					<ContextMenuPopupOption />
 				</ContextMenuPopupOptions>
@@ -89,7 +89,7 @@ describe('ContextMenuPopup' , () => {
 	it(`adds proper styles to root element in case style 'property' is not passed`, () => {
 		const wrapper = mount(
 			<ContextMenuPopup>
-				<ContextMenuPopupTrigger onClick={() => {}}/>
+				<ContextMenuPopupTrigger />
 				<ContextMenuPopupOptions>
 					<ContextMenuPopupOption />
 				</ContextMenuPopupOptions>
@@ -99,96 +99,124 @@ describe('ContextMenuPopup' , () => {
 		expect(wrapper.find('div').first().getDOMNode().style.cssText).to.eql('position: relative;');
 	});
 
-	it('properly renders trigger element', () => {
+	it('properly renders ContextMenuPopupTrigger element', () => {
 		const wrapper = mount(
 			<ContextMenuPopup>
-				<ContextMenuPopupTrigger onClick={() => {}}/>
+				<ContextMenuPopupTrigger />
 				<ContextMenuPopupOptions>
 					<ContextMenuPopupOption />
 				</ContextMenuPopupOptions>
 			</ContextMenuPopup>
 		);
 
-		expect(wrapper.find('div').at(1).getDOMNode().className).to.eql('context-menu-popup__trigger');
+		expect(wrapper.find('.context-menu-popup__trigger')).to.have.length(1);
 	});
 	
-	it('properly decorates ContextMenuPopupTrigger component', () => {
-		const onClickHandler = () => {};
+	it('renders ContextMenuPopupOptions component in case this.state.optionsVisible is true', () => {
 		const wrapper = mount(
 			<ContextMenuPopup>
-				<ContextMenuPopupTrigger onClick={onClickHandler}/>
+				<ContextMenuPopupTrigger />
 				<ContextMenuPopupOptions>
 					<ContextMenuPopupOption />
 				</ContextMenuPopupOptions>
 			</ContextMenuPopup>
 		);
 
-		const Trigger = wrapper.props().children.filter((item) => {
-			return item.type.name === 'ContextMenuPopupTrigger'
-		})[0];
+		wrapper.instance().setState({optionsVisible: true});
 
-		console.log(Trigger.props.customOnClickHandler);
-		console.log(Trigger.props.onClick);
-
-		expect(Trigger.props.onClick).to.equal(onClickHandler);
+		expect(wrapper.find('.context-menu-popup__options')).to.have.length(1);
 	});
 
-	//
-	// xit('adds proper class to root element in case it is passed as className property', () => {
-	// 	const className = 'test-class-name';
-	// 	const wrapper = mount(
-	// 		<ContextMenuPopup className={className}/>
-	// 	);
-	//
-	// 	expect(wrapper.find('div').hasClass(className)).to.equal(true);
-	// });
-	//
-	// xit('adds default class to root element in case there is no className passed as property', () => {
-	// 	const className = 'context-menu-popup__trigger';
-	// 	const wrapper = mount(
-	// 		<ContextMenuPopup />
-	// 	);
-	//
-	// 	expect(wrapper.find('div').hasClass(className)).to.equal(true);
-	// });
-	//
-	// xit('calls customOnClickHandler after click event in case customOnClickHandler is passed as prop', () => {
-	// 	const customOnClickHandler = sinon.spy();
-	//
-	// 	const wrapper = mount(
-	// 		<ContextMenuPopup customOnClickHandler={customOnClickHandler}/>
-	// 	);
-	//
-	// 	wrapper.find('div').simulate('click');
-	//
-	// 	expect(customOnClickHandler).to.have.property('callCount', 1);
-	// 	expect(customOnClickHandler.calledWith()).to.eql(true);
-	// });
-	//
-	// xit('calls customOnClickHandler after click event in case customOnClickHandler is passed as prop', () => {
-	// 	const customOnClickHandler = sinon.spy();
-	// 	const contextMenuPopup = {};
-	//
-	// 	const wrapper = mount(
-	// 		<ContextMenuPopup customOnClickHandler={customOnClickHandler} contextMenuPopup={contextMenuPopup}/>
-	// 	);
-	//
-	// 	wrapper.find('div').simulate('click');
-	//
-	// 	expect(customOnClickHandler.calledOnce).to.eql(true);
-	// 	expect(customOnClickHandler.calledWith(contextMenuPopup)).to.eql(true);
-	// });
-	//
-	// xit('calls customOnClickHandler after click event in case customOnClickHandler is passed as prop', () => {
-	// 	const onClick = sinon.spy();
-	//
-	// 	const wrapper = mount(
-	// 		<ContextMenuPopup onClick={onClick}/>
-	// 	);
-	//
-	// 	wrapper.find('div').simulate('click');
-	//
-	// 	expect(onClick.calledOnce).to.eql(true);
-	// 	expect(onClick.calledWith()).to.eql(true);
-	// });
+	it('does not render ContextMenuPopupOptions component in case this.state.optionsVisible is false', () => {
+		const wrapper = mount(
+			<ContextMenuPopup>
+				<ContextMenuPopupTrigger />
+				<ContextMenuPopupOptions>
+					<ContextMenuPopupOption />
+				</ContextMenuPopupOptions>
+			</ContextMenuPopup>
+		);
+
+		wrapper.instance().setState({optionsVisible: false});
+
+		expect(wrapper.find('.context-menu-popup__options')).to.have.length(0);
+	});
+
+	describe('methods', () => {
+	    describe('close', () => {
+	        it('sets state.optionsVisible to false', () => {
+		        const wrapper = mount(
+			        <ContextMenuPopup>
+				        <ContextMenuPopupTrigger />
+				        <ContextMenuPopupOptions>
+					        <ContextMenuPopupOption />
+				        </ContextMenuPopupOptions>
+			        </ContextMenuPopup>
+		        );
+
+		        wrapper.instance().setState({optionsVisible: true});
+
+		        wrapper.instance().close();
+
+		        expect(wrapper.state('optionsVisible')).to.eql(false);
+	        });
+	    });
+
+		describe('open', () => {
+			it('sets state.optionsVisible to true', () => {
+				const wrapper = mount(
+					<ContextMenuPopup>
+						<ContextMenuPopupTrigger />
+						<ContextMenuPopupOptions>
+							<ContextMenuPopupOption />
+						</ContextMenuPopupOptions>
+					</ContextMenuPopup>
+				);
+
+				wrapper.instance().setState({optionsVisible: false});
+
+				wrapper.instance().open();
+
+				expect(wrapper.state('optionsVisible')).to.eql(true);
+			});
+		});
+
+		describe('onOptionsListMouseLeave', () => {
+			it('sets state.optionsVisible to false', () => {
+				const wrapper = mount(
+					<ContextMenuPopup>
+						<ContextMenuPopupTrigger />
+						<ContextMenuPopupOptions>
+							<ContextMenuPopupOption />
+						</ContextMenuPopupOptions>
+					</ContextMenuPopup>
+				);
+
+				wrapper.instance().setState({optionsVisible: true});
+
+				wrapper.instance().onOptionsListMouseLeave();
+
+				expect(wrapper.state('optionsVisible')).to.eql(false);
+			});
+		});
+
+		describe('onTriggerClick', () => {
+			it('sets state.optionsVisible to true', () => {
+				const wrapper = mount(
+					<ContextMenuPopup>
+						<ContextMenuPopupTrigger />
+						<ContextMenuPopupOptions>
+							<ContextMenuPopupOption />
+						</ContextMenuPopupOptions>
+					</ContextMenuPopup>
+				);
+
+				wrapper.instance().setState({optionsVisible: false});
+
+				wrapper.instance().onTriggerClick();
+
+				expect(wrapper.state('optionsVisible')).to.eql(true);
+			});
+		});
+	});
 });

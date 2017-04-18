@@ -42,14 +42,11 @@ class ContextMenuPopup extends React.Component {
 			return item.type.name === 'ContextMenuPopupTrigger'
 		})[0];
 
-		const a = React.cloneElement(Trigger, {
+		return React.cloneElement(Trigger, {
 			customOnClickHandler: Trigger.props.onClick,
 			onClick: this.onTriggerClick.bind(this),
 			contextMenuPopup: this
-		})
-
-		console.log('################################################## ??');
-		console.log(a.props.customOnClickHandler);
+		});
 	}
 
 	onTriggerClick() {
