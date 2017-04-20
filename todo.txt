@@ -1,3 +1,4 @@
+- podpiąć jakiś example, potrzebny do developmentu
 - ocverage sie spierdzielił
 - w ContextMenuPopupOption dac style i hoverStyle - teraz tylko hoverStyle beda aplikowane prawdopodobnie, a powinny extendowac style
 - odkomentowac testy w ContextMenuPopupOption
