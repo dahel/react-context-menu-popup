@@ -110,7 +110,9 @@ or you can used pre-defined class names as described below (it uses BEM)
 
 ### API
 When passing some function as prop: 
+
 `<ContextMenuPopupTrigger onClick={(contextMenuPopup) => contextMenuPopup.open()}>`
+
 in this function you will receive a contextMenuPopup instance.
 It contains two methods which you should be interested in:
 
