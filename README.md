@@ -1,5 +1,7 @@
 ## react-context-menu-popup
 
+Simple, mobile friendly, window adjustable context menu popup for react-based web apps
+
 #### Installation
 ```
 npm install react-context-menu-popup --save

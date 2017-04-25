@@ -1,4 +1,5 @@
-- add git to readme
+- add gifs to readme
+- add cross-platform support
 - add description to readme
 - fix coverage reports
 - add coverage badge to npm
