@@ -19,6 +19,34 @@ const ALBUMS = [
     {
         id: 'funeral',
         name:  'Arcade Fire - Funeral'
+    },
+    {
+        id: 'kid_a',
+        name: 'Radiohead - Kid A'
+    },
+    {
+        id: 'white_album',
+        name:  'The Beatles - White Album'
+    },
+    {
+        id: 'closer',
+        name:  'Joy Division - Closer'
+    },
+    {
+        id: 'blur1',
+        name:  'Blur - The Great Escape'
+    },
+    {
+        id: 'blur2',
+        name:  'Blur - Blur'
+    },
+    {
+        id: 'modest_mouse1',
+        name:  'Modest Mouse - The Moon & Antarctica'
+    },
+    {
+        id: 'modest_mouse2',
+        name:  'Modest Mouse - Good News for People Who Love Bad News'
     }
 ];
 
@@ -70,11 +98,19 @@ export default class FirstExample extends Component {
     onFirstOptionClick(itemId, contextMenuButton) {
         console.log('onFirstOptionClick()', itemId);
 
-        contextMenuButton.close();
+        setTimeout(function () {
+            alert('Option 1 selected');
+        }, 1);
     }
 
     onSecondOptionClick(itemId, contextMenuButton) {
         console.log('onSecondOptionClick()', itemId);
+
+        contextMenuButton.close();
+
+        setTimeout(function () {
+            alert('Option 2 selected');
+        }, 1);
     }
 
 }
