@@ -2,7 +2,7 @@
 
 Simple, mobile friendly, window adjustable context menu popup for react-based web apps
 
-<img src="https://cloud.githubusercontent.com/assets/1887361/25500914/1cb7e6b8-2b91-11e7-9965-899263952147.gif"><img src="https://cloud.githubusercontent.com/assets/1887361/25501107/cec319a4-2b91-11e7-9fd4-eac3fc969b86.gif">
+<img src="https://cloud.githubusercontent.com/assets/1887361/25500914/1cb7e6b8-2b91-11e7-9965-899263952147.gif"><img style="padding-bottom: 30px;" src="https://cloud.githubusercontent.com/assets/1887361/25501107/cec319a4-2b91-11e7-9fd4-eac3fc969b86.gif">
 
 #### Installation
 ```
