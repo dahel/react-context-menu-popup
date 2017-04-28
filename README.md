@@ -1,5 +1,5 @@
 ## react-context-menu-popup
-[![Build Status](https://travis-ci.org/dahel/react-context-menu-popup.svg?branch=master)](react-context-menu-popup)
+[![Build Status](https://travis-ci.org/dahel/react-context-menu-popup.svg?branch=master)](react-context-menu-popup) [![Coverage Status](https://coveralls.io/repos/github/dahel/react-context-menu-popup/badge.svg?branch=master)](https://coveralls.io/github/dahel/react-context-menu-popup?branch=master)
 
 Simple, mobile friendly, window adjustable context menu popup for react-based web apps
 
