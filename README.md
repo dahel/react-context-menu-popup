@@ -1,4 +1,5 @@
 ## react-context-menu-popup
+[![Build Status](https://travis-ci.org/dahel/react-context-menu-popup.svg?branch=master)](react-context-menu-popup)
 
 Simple, mobile friendly, window adjustable context menu popup for react-based web apps
 
