@@ -1,3 +1,0 @@
-- fix coverage reports
-- add coverage badge to npm
-- add build badge to npm

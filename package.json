@@ -10,7 +10,7 @@
     "test:watch:dev": "mocha --watch -r babel-register -r ./test/setup.js \"./test/**/contextMenuPopup.test.js\"",
     "coverage": "nyc --check-coverage --lines 100 --reporter=lcov --reporter=text npm test",
     "build:dev": "rollup -c config/dev.js",
-    "dev-server": "webpack-dev-server --hot --progress --config ./webpack.config.js",
+    "start": "webpack-dev-server --hot --progress --config ./webpack.config.js",
     "build": "webpack --progress --config ./webpack.config.js"
   },
   "repository": {
