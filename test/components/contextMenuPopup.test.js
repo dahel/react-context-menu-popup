@@ -37,8 +37,6 @@ describe('ContextMenuPopup' , () => {
 	});
 
 	it('adds proper class to root element in case it is not passed as className property', () => {
-		const initialClassName = 'my-context-menu-popup';
-
 		const wrapper = mount(
 			<ContextMenuPopup>
 				<ContextMenuPopupTrigger />
@@ -48,7 +46,7 @@ describe('ContextMenuPopup' , () => {
 			</ContextMenuPopup>
 		);
 
-		expect(wrapper.find('div').first().hasClass(initialClassName)).to.equal(true);
+		expect(wrapper.find('div').first().hasClass('context-menu-popup')).to.equal(true);
 	});
 
 	it('adds proper styles to root element in case it is passed as style property', () => {
